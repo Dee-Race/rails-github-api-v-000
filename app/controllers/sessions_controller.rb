@@ -15,6 +15,5 @@ class SessionsController < ApplicationController
       user = JSON.parse(user_info.body)
       session[:username] = user["login"]
       redirect_to root_path
-    end
   end
 end
