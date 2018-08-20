@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       req.params['grant_type'] = 'authorization_code'
       req.params['redirect_uri'] = "http://localhost:3000/auth"
       req.params['code'] = params[:code]
-      req.body = { 'client_id': client_id, 'client_secret': client_secret, 'code': code }
+      req.body = { 'client_id': ENV['GITHUB_CLIENT_ID'], 'client_secret': ENV['GITHUBT_CLIENT_SECRET'], 'code': params[:code] }
       req.headers['Accept'] = 'application/json'
 
       body = JSON.parse(resp.body)
